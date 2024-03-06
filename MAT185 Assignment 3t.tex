@@ -208,13 +208,14 @@ $$\mathrm{rank}\, A + \mathrm{rank}\, B - k \leq \mathrm{rank}\, AB.$$ \\
 	\makenonemptybox{550pt}{
 
 	%%% Your work goes here! 
-		1. \( AB = 0 \) $\Rightarrow$ \(\forall \mathbf{b} \in \text{col}(B), A\mathbf{b} = \mathbf{0} \), thus \( \text{col}(B) \subseteq \text{null}(A) \).\\
-		2. \( \text{rank}(B) = \text{dim col}(B) \).\\
-		3. By "Theorem II" $\rightarrow$ \( \text{dim null } A = k - \text{rank } A \), where \( k \) is the number of columns of \( A \).\\
-		4. Since \( \text{col}(B) \subseteq \text{null}(A) \), it follows that \( \text{rank}(B) \leq \text{dim null}(A) \).\\
-		5. Applying "Theorem II", we deduce \( \text{rank}(B) \leq k - \text{rank}(A) \) $\Rightarrow$ \( \text{rank}(A) + \text{rank}(B) - k \leq 0 \).\\
-		6. Since the rank of any matrix, including the zero matrix \( AB \), is non-negative, we have \( \text{rank}(AB) = 0 \).\\
-		7. Therefore, \( \text{rank}(A) + \text{rank}(B) - k \leq \text{rank}(AB) \) by substitution from (6)\\	
+	\begin{enumerate}
+		\item \( AB = 0 \) implies that for all \( \mathbf{b} \in \text{col}(B) \), we have \( A\mathbf{b} = \mathbf{0} \). Hence, \( \text{col}(B) \subseteq \text{null}(A) \).
+		\item By "Theorem II", we have \( \text{dim}(\text{null}(A)) = k - \text{rank}(A) \), where \( k \) is the number of columns of \( A \).
+		\item Since \( \text{col}(B) \subseteq \text{null}(A) \), it follows that \( \text{rank}(B) \leq \text{dim}(\text{null}(A)) \).
+		\item From "Theorem II", we deduce \( \text{rank}(B) \leq k - \text{rank}(A) \) which implies \( \text{rank}(A) + \text{rank}(B) - k \leq 0 \).
+		\item The rank of any matrix, including the zero matrix \( AB \), is non-negative, hence \( \text{rank}(AB) = 0 \).
+		\item Therefore, \( \text{rank}(A) + \text{rank}(B) - k \leq \text{rank}(AB) \), by substitution from the previous point.
+	\end{enumerate}
 
 
 	}
@@ -252,16 +253,18 @@ $$X=\begin{bmatrix} A & C \end{bmatrix} \,\,\, \mbox{ and } \,\,\, Y=\begin{bmat
 		
 		\item Validate \( XY = 0 \) through \( AB - CD = 0 \), leveraging rank factorization. \\
 		
-		\item Assess \( \text{rank}(X) \), \( \text{rank}(Y) \) considering column space overlaps; \( \text{rank}(X) \leq \text{rank}(A) + \min\{r, k-\text{rank}(A)\} \), similarly for \( Y \). \\
+		\item Since \( \text{col}(A) \subseteq \text{col}(X) \), then \( \text{rank}(A) \leq \text{rank}(X) \). \\
+		
+		\item Since \( \text{row}(B) \subseteq \text{row}(Y) \), then \( \text{rank}(B) \leq \text{rank}(Y) \). \\
 		
 		\item By invoking part (a), note that \( \text{rank}(X) + \text{rank}(Y) - (k + r) \leq 0 \) holds due to \( XY = 0 \). This inequality reflects the principle that the sum of the ranks of two matrices minus the dimension they share cannot exceed the rank of their product, even when that product is the zero matrix. \\
 		
-		\item Merge rank bounds, getting \( \text{rank}(A) + \text{rank}(B) + 2r - (k + r) \leq 0 \), simplified to \( \text{rank}(A) + \text{rank}(B) + r - k \leq 0 \). \\
+		\item By substitution from step 4 to step 5: \( \text{rank}(A) + \text{rank}(B) - (k + r) \leq 0 \)\\
 		
-		\item Therefore \( \text{rank}(A) + \text{rank}(B) - k \leq -\text{rank}(AB) \leq \text{rank}(AB) \Rightarrow \text{rank}(A) + \text{rank}(B) - k \leq \text{rank}(AB) \).
+		\item Therefore \( \text{rank}(A) + \text{rank}(B) - k \leq r = \text{rank}(AB)\).
 		
 		
-		\end{enumerate} 
+		\end{enumerate}
 	
 	}
 }
@@ -334,7 +337,31 @@ $$X=\begin{bmatrix} C & E \end{bmatrix} \,\,\, \mbox{ and } \,\,\, Y=\begin{bmat
 	\makenonemptybox{550pt}{
 
 	%%% Your work goes here! 
-
+	\begin{enumerate}
+		\item To prove \( \text{rank}(A+B) \leq \text{rank}(A) + \text{rank}(B) \):
+		\begin{itemize}
+			\item Let \( A, B \in \mathbb{R}^{m \times n} \) and assume that \( \text{rank}(A) = r \) and \( \text{rank}(B) = s \).
+			\item We can write rank factorizations \( A = CD \) and \( B = EF \) where \( C, E \in \mathbb{R}^{m \times k} \) for some \( k \) and \( D, F \in \mathbb{R}^{k \times n} \).
+			\item Consider the augmented matrix \( X = [C \ E] \in \mathbb{R}^{m \times 2k} \) and \( Y = \begin{bmatrix} D \\ F \end{bmatrix} \in \mathbb{R}^{2k \times n} \).
+			\item The product \( XY \) represents \( A+B \) since \( CD + EF = A + B \).
+			\item \( \text{rank}(XY) \) cannot exceed the total number of columns in \( X \) or the total number of rows in \( Y \), which is \( 2k \).
+			\item Since \( k \) can be at most \( \text{rank}(A) \) or \( \text{rank}(B) \), it follows that \( \text{rank}(A+B) = \text{rank}(XY) \leq \text{rank}(A) + \text{rank}(B) \).
+		\end{itemize}
+		\item To prove \( | \text{rank}(A) - \text{rank}(B) | \leq \text{rank}(A+B) \):
+		\begin{itemize}
+			\item Using the same augmented matrices \( X \) and \( Y \) as in the previous proof, we have \( XY = A+B \).
+			\item There exist the inequality \( \text{rank}(X) + \text{rank}(Y) - r - s \leq \text{rank}(A+B) \) from Question 1.
+			\item Using the factorizations of \( A \) and \( B \), 
+			\begin{itemize}
+				\item Since \( \text{col}(C) \subseteq \text{col}(X) \), then \( \text{rank}(C) \leq \text{rank}(X) \).
+				\item Since \( \text{col}(E) \subseteq \text{col}(X) \), then \( \text{rank}(E) \leq \text{rank}(X) \).
+				\item Since \( \text{row}(D) \subseteq \text{row}(Y) \), then \( \text{rank}(D) \leq \text{rank}(Y) \).
+				\item Since \( \text{row}(F) \subseteq \text{row}(Y) \), then \( \text{rank}(F) \leq \text{rank}(Y) \).
+			\end{itemize}
+			\item By substituting the inequalities above into the inequality from Question 1, we get \( \text{rank}(C) + \text{rank}(D) - r - s \leq \text{rank}(A+B) \), \(text{rank}(E) + \text{rank}(F) - r - s \leq \text{rank}(A+B)\).
+			\item Since \(CD\) is a factorization of \(A\), we have \(r = \text{rank}(A) = \text{rank}(C) = \text{rank}(D)\) because $C$ consists of a set of column vetor basis from $A$, which are independent, therefore \(\text{rank}(C) = r = \text{rank}(A)\). $D$ would need to be the same rank as $A$ to ensure that the product of $CD$ is the same rank as $A$, as $C$ has full colume rank.
+		\end{itemize}
+	\end{enumerate}
 
 	}
 }
