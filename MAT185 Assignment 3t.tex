@@ -366,7 +366,12 @@ $$X=\begin{bmatrix} C & E \end{bmatrix} \,\,\, \mbox{ and } \,\,\, Y=\begin{bmat
 			\item By substituting the ranks of \(C, D, E, F\) into the inequality, we get \(\text{rank}(A) + \text{rank}(A) \leq \text{rank}(A + B) + \text{rank}(A) + \text{rank}(B)\), \(\text{rank}(B) + \text{rank}(B) \leq \text{rank}(A + B) + \text{rank}(A) + \text{rank}(B)\).
 			\item \(\text{rank}(A) \leq \text{rank}(A + B) + \text{rank}(B)\), \(\text{rank}(B) \leq \text{rank}(A + B) + \text{rank}(A)\)
 			\item \(\text{rank}(A) - \text{rank}(B) \leq \text{rank}(A + B)\), \(\text{rank}(B) - \text{rank}(A) \leq \text{rank}(A + B)\)
-			\item Therefore we can combine the two results above with an absolute value: \(| \text{rank}(A) - \text{rank}(B) | \leq \text{rank}(A + B)\).
+			\item Therefore we can combine the two results above with an absolute value as when 
+			\begin{itemize}
+				\item \(\text{rank}(A) > \text{rank}(B)\), then \(\text{rank}(A + B) \geq \text{rank}(A) - \text{rank}(B) > \text{rank}(B) - \text{rank}(A)\)
+				\item \(\text{rank}(A) < \text{rank}(B)\), then \(\text{rank}(A + B) \geq \text{rank}(B) - \text{rank}(A) > \text{rank}(A) - \text{rank}(B)\)
+			\end{itemize}
+			\item Therefore \(| \text{rank}(A) - \text{rank}(B) | \leq \text{rank}(A + B)\).
 		\end{itemize}
 	\end{enumerate}
 
