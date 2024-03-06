@@ -208,6 +208,13 @@ $$\mathrm{rank}\, A + \mathrm{rank}\, B - k \leq \mathrm{rank}\, AB.$$ \\
 	\makenonemptybox{550pt}{
 
 	%%% Your work goes here! 
+		1. \( AB = 0 \) $\Rightarrow$ \(\forall \mathbf{b} \in \text{col}(B), A\mathbf{b} = \mathbf{0} \), thus \( \text{col}(B) \subseteq \text{null}(A) \).\\
+		2. \( \text{rank}(B) = \text{dim col}(B) \).\\
+		3. By "Theorem II" $\rightarrow$ \( \text{dim null } A = k - \text{rank } A \), where \( k \) is the number of columns of \( A \).\\
+		4. Since \( \text{col}(B) \subseteq \text{null}(A) \), it follows that \( \text{rank}(B) \leq \text{dim null}(A) \).\\
+		5. Applying "Theorem II", we deduce \( \text{rank}(B) \leq k - \text{rank}(A) \) $\Rightarrow$ \( \text{rank}(A) + \text{rank}(B) - k \leq 0 \).\\
+		6. Since the rank of any matrix, including the zero matrix \( AB \), is non-negative, we have \( \text{rank}(AB) = 0 \).\\
+		7. Therefore, \( \text{rank}(A) + \text{rank}(B) - k \leq \text{rank}(AB) \) by substitution from (6)\\	
 
 
 	}
@@ -237,7 +244,24 @@ $$X=\begin{bmatrix} A & C \end{bmatrix} \,\,\, \mbox{ and } \,\,\, Y=\begin{bmat
 	
 	\makenonemptybox{550pt}{
 
-	%%% Your work goes here! 
+	%%% Your work goes here!
+	\begin{enumerate}
+		\item Assume \( AB \neq 0 \) with \( \text{rank}(AB) = r \geq 1 \), implying rank factorization \( AB = CD \). \\
+		
+		\item Construct \( X = \begin{bmatrix} A & C \end{bmatrix} \), \( Y = \begin{bmatrix} B \\ -D \end{bmatrix} \), ensuring \( XY = 0 \) via \( CD = AB \). \\
+		
+		\item Validate \( XY = 0 \) through \( AB - CD = 0 \), leveraging rank factorization. \\
+		
+		\item Assess \( \text{rank}(X) \), \( \text{rank}(Y) \) considering column space overlaps; \( \text{rank}(X) \leq \text{rank}(A) + \min\{r, k-\text{rank}(A)\} \), similarly for \( Y \). \\
+		
+		\item By invoking part (a), note that \( \text{rank}(X) + \text{rank}(Y) - (k + r) \leq 0 \) holds due to \( XY = 0 \). This inequality reflects the principle that the sum of the ranks of two matrices minus the dimension they share cannot exceed the rank of their product, even when that product is the zero matrix. \\
+		
+		\item Merge rank bounds, getting \( \text{rank}(A) + \text{rank}(B) + 2r - (k + r) \leq 0 \), simplified to \( \text{rank}(A) + \text{rank}(B) + r - k \leq 0 \). \\
+		
+		\item Therefore \( \text{rank}(A) + \text{rank}(B) - k \leq -\text{rank}(AB) \leq \text{rank}(AB) \Rightarrow \text{rank}(A) + \text{rank}(B) - k \leq \text{rank}(AB) \).
+		
+		
+		\end{enumerate} 
 	
 	}
 }
@@ -258,6 +282,34 @@ $$\mathrm{nullity}\, AB \leq \mathrm{nullity}\, A +\mathrm{nullity}\, B$$
 	\makenonemptybox{550pt}{
 	
 	%%% Your work goes here! 
+	\begin{enumerate}
+		\item Start by applying the Rank-Nullity Theorem for matrix \( A \): \\
+			  \( \text{rank}(A) + \text{nullity}(A) = k \). \label{step:rank_nullity_A}
+		
+		\item Apply the Rank-Nullity Theorem for matrix \( B \): \\
+			  \( \text{rank}(B) + \text{nullity}(B) = n \). \label{step:rank_nullity_B}
+		
+		\item Apply the Rank-Nullity Theorem for matrix \( AB \): \\
+			  \( \text{rank}(AB) + \text{nullity}(AB) = n \). \label{step:rank_nullity_AB}
+		
+		\item Use the inequality provided from Question 1, which can be expressed as: \\
+			  \( \text{rank}(A) + \text{rank}(B) - k \leq \text{rank}(AB) \). \label{step:inequality_given}
+		
+		\item From the inequality in Step \ref{step:inequality_given}, replace \( \text{rank}(A) \) using Step \ref{step:rank_nullity_A}, resulting in: \\
+			  \( k - \text{nullity}(A) + \text{rank}(B) - k \leq \text{rank}(AB) \). \label{step:replace_rank_A}
+		
+		\item Simplify the inequality obtained in Step \ref{step:replace_rank_A}: \\
+			  \( \text{rank}(B) - \text{nullity}(A) \leq \text{rank}(AB) \). \label{step:simplify_inequality}
+		
+		\item Replacing \( \text{rank}(AB) \) using Step \ref{step:rank_nullity_AB} in the inequality from Step \ref{step:simplify_inequality}, we get: \\
+			  \( \text{rank}(B) - \text{nullity}(A) \leq n - \text{nullity}(AB) \). \label{step:replace_rank_AB}
+		
+		\item Rearrange the inequality in Step \ref{step:replace_rank_AB}: \\
+			  \( \text{nullity}(AB) \leq n - \text{rank}(B) + \text{nullity}(A) \). \label{step:rearrange_inequality}
+		
+		\item Finally, replace \( n - \text{rank}(B) \) using Step \ref{step:rank_nullity_B} in the inequality from Step \ref{step:rearrange_inequality}: \\
+			  \( \text{nullity}(AB) \leq \text{nullity}(B) + \text{nullity}(A) \), which is the goal inequality. \label{step:final_step}
+	\end{enumerate}
 	
 	
 	}
