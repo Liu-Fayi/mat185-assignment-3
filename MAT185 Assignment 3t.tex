@@ -358,8 +358,15 @@ $$X=\begin{bmatrix} C & E \end{bmatrix} \,\,\, \mbox{ and } \,\,\, Y=\begin{bmat
 				\item Since \( \text{row}(D) \subseteq \text{row}(Y) \), then \( \text{rank}(D) \leq \text{rank}(Y) \).
 				\item Since \( \text{row}(F) \subseteq \text{row}(Y) \), then \( \text{rank}(F) \leq \text{rank}(Y) \).
 			\end{itemize}
-			\item By substituting the inequalities above into the inequality from Question 1, we get \( \text{rank}(C) + \text{rank}(D) - r - s \leq \text{rank}(A+B) \), \(text{rank}(E) + \text{rank}(F) - r - s \leq \text{rank}(A+B)\).
+			\item By substituting the inequalities above into the inequality from Question 1, we get \( \text{rank}(C) + \text{rank}(D) - r - s \leq \text{rank}(A+B) \), \(\text{rank}(E) + \text{rank}(F) - r - s \leq \text{rank}(A+B)\).
+			\item \(\text{rank}(C) + \text{rank}(D) \leq \text{rank}(A + B) + r + s\), \(\text{rank}(E) + \text{rank}(F) \leq \text{rank}(A + B) + r + s\).
+			\item \(\text{rank}(C) + \text{rank}(D) \leq \text{rank}(A + B) + \text{rank}(A) + \text{rank}(B)\), \(\text{rank}(E) + \text{rank}(F) \leq \text{rank}(A + B) + \text{rank}(A) + \text{rank}(B)\).
 			\item Since \(CD\) is a factorization of \(A\), we have \(r = \text{rank}(A) = \text{rank}(C) = \text{rank}(D)\) because $C$ consists of a set of column vetor basis from $A$, which are independent, therefore \(\text{rank}(C) = r = \text{rank}(A)\). $D$ would need to be the same rank as $A$ to ensure that the product of $CD$ is the same rank as $A$, as $C$ has full colume rank.
+			\item Similarly, \(EF\) is a factorization of \(B\), therefore we have \(s = \text{rank}(B) = \text{rank}(E) = \text{rank}(F)\).
+			\item By substituting the ranks of \(C, D, E, F\) into the inequality, we get \(\text{rank}(A) + \text{rank}(A) \leq \text{rank}(A + B) + \text{rank}(A) + \text{rank}(B)\), \(\text{rank}(B) + \text{rank}(B) \leq \text{rank}(A + B) + \text{rank}(A) + \text{rank}(B)\).
+			\item \(\text{rank}(A) \leq \text{rank}(A + B) + \text{rank}(B)\), \(\text{rank}(B) \leq \text{rank}(A + B) + \text{rank}(A)\)
+			\item \(\text{rank}(A) - \text{rank}(B) \leq \text{rank}(A + B)\), \(\text{rank}(B) - \text{rank}(A) \leq \text{rank}(A + B)\)
+			\item Therefore we can combine the two results above with an absolute value: \(| \text{rank}(A) - \text{rank}(B) | \leq \text{rank}(A + B)\).
 		\end{itemize}
 	\end{enumerate}
 
